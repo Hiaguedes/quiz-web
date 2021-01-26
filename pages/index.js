@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import Header from 'next/head';
-import Image from 'next/image';
 import db from '../db.json';
 import { Widget } from '../components/Widget/styles';
-import Footer from '../components/Footer';
-import { QuizBackground } from '../components/QuizBackground';
-import GitHubCorner from '../components/GithubCorner';
 import { Input } from '../components/Input'
 import { Button } from '../components/Button'
+import Layout from '../layouts'
+import { useRouter } from 'next/router'
 
 const theme = db.theme;
 
@@ -25,6 +23,7 @@ export const QuizContainer = styled.div`
 
 export default function Home() {
   const [nameValue, setNameValue] = useState('');
+  const router = useRouter()
   useEffect(() => {
 
   })
@@ -33,13 +32,7 @@ export default function Home() {
     <Header>
       <title>Home</title>
     </Header>
-    <QuizBackground backgroundImage={db.bg}>
-      <GitHubCorner projectUrl="https://github.com/Hiaguedes/imersao-react-nextjs-alura"/>
-      <QuizContainer>
-      <div style={{display: 'flex', justifyContent: 'center'}}>
-        <Image src="/img/logoAlura.svg" width="134.37px" height="67px"/>
-      </div>
-
+    <Layout>
         <Widget>
           <Widget.Header>
             <h1>{db.title}</h1>
@@ -47,7 +40,7 @@ export default function Home() {
           <Widget.Content>
           <p>{db.description}</p>
           <Input placeholder="Diz aí seu nome pra jogar :)" value={nameValue} onChange={e => setNameValue(e.target.value)}/>
-          <Button>
+          <Button onClick={() => router.push('/perguntas')}>
             Jogar
           </Button>
           </Widget.Content>
@@ -62,9 +55,7 @@ export default function Home() {
             <Widget.Link href="#">dogofwisdom/everyonelikesme</Widget.Link>
           </Widget.Content>
         </Widget>
-      <Footer />
-      </QuizContainer>
-    </QuizBackground>
+        </Layout>
     </>
   )
 }

@@ -60,3 +60,13 @@ Widget.Link = styled.div`
   cursor: pointer;
   margin-top: 0.8rem;
 `;
+
+Widget.Image = styled.div`
+  width: 100%;
+  background-size: cover;
+  background-image: url(${({ backgroundImage }) => backgroundImage});
+  background-color: ${({ theme }) => theme.colors.mainBg};
+  flex: 1;
+  height: 200px;
+  background-position: center;
+`;

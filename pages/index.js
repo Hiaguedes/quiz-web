@@ -1,9 +1,14 @@
 import styled from 'styled-components';
+import { useEffect, useState } from 'react';
+import Header from 'next/head';
+import Image from 'next/image';
 import db from '../db.json';
 import { Widget } from '../components/Widget/styles';
 import Footer from '../components/Footer';
 import { QuizBackground } from '../components/QuizBackground';
 import GitHubCorner from '../components/GithubCorner';
+import { Input } from '../components/Input'
+import { Button } from '../components/Button'
 
 const theme = db.theme;
 
@@ -19,29 +24,45 @@ export const QuizContainer = styled.div`
 `;
 
 export default function Home() {
+  const [nameValue, setNameValue] = useState('');
+  useEffect(() => {
+
+  })
   return (
+    <>
+    <Header>
+      <title>Home</title>
+    </Header>
     <QuizBackground backgroundImage={db.bg}>
       <GitHubCorner projectUrl="https://github.com/Hiaguedes/imersao-react-nextjs-alura"/>
       <QuizContainer>
+      <div style={{margin: '0 auto'}}>
+        <Image src="/img/logoAlura.svg" width="134.37px" height="67px"/>
+      </div>
+
         <Widget>
           <Widget.Header>
-            <h1>eae</h1>
+            <h1>{db.title}</h1>
           </Widget.Header>
           <Widget.Content>
-            <p>desc</p>
+          <p>{db.description}</p>
+          <Input placeholder="Diz aí seu nome pra jogar :)" value={nameValue} onChange={e => setNameValue(e.target.value)}/>
+          <Button>
+            Jogar
+          </Button>
           </Widget.Content>
         </Widget>
 
         <Widget>
           <Widget.Content>
-            <p>Título desc</p>
-          </Widget.Content>
-          <Widget.Content>
-            <p>desc</p>
+            <p style={{fontWeight: 700, fontSize: '16px'}}>Quizes da rapeize</p>
+            <p>Se liga nesses quizes incríveis que o pessoal da Imersão Alura fez</p>
+            <Widget.Link href="#">clebinhodj/showdomilhaoalura</Widget.Link>
           </Widget.Content>
         </Widget>
       <Footer />
       </QuizContainer>
     </QuizBackground>
+    </>
   )
 }

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Image from 'next/image';
 import db from '../db.json';
 import Footer from '../components/Footer';
@@ -25,14 +25,12 @@ export default function Layout({ children }) {
   });
   return (
     <>
-
       <QuizBackground backgroundImage={db.bg}>
         <GitHubCorner projectUrl="https://github.com/Hiaguedes/imersao-react-nextjs-alura" />
         <QuizContainer>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <Image src="/img/logoAlura.svg" width="134.37px" height="67px" />
           </div>
-
           {children}
           <Footer />
         </QuizContainer>

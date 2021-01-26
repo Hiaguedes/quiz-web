@@ -29,8 +29,8 @@ export default function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    router.push('/perguntas');
     setPlayerNome(nameValue);
+    router.push('/perguntas');
   };
 
   useEffect(() => {
@@ -42,30 +42,32 @@ export default function Home() {
         <title>Home</title>
       </Header>
       <Layout>
-        <Widget>
-          <Widget.Header>
-            <h1>{db.title}</h1>
-          </Widget.Header>
-          <Widget.Content>
-            <p>{db.description}</p>
-            <form onSubmit={e => handleSubmit(e)}>
-              <Input required placeholder="Diz aí seu nome pra jogar :)" value={nameValue} onChange={(e) => setNameValue(e.target.value)} />
-              <Button>
-                Jogar
-              </Button>
-            </form>
-          </Widget.Content>
-        </Widget>
+        <>
+          <Widget>
+            <Widget.Header>
+              <h1>{db.title}</h1>
+            </Widget.Header>
+            <Widget.Content>
+              <p>{db.description}</p>
+              <form onSubmit={(e) => handleSubmit(e)}>
+                <Input required placeholder="Diz aí seu nome pra jogar :)" value={nameValue} onChange={(e) => setNameValue(e.target.value)} />
+                <Button disabled={nameValue.length === 0}>
+                  Jogar
+                </Button>
+              </form>
+            </Widget.Content>
+          </Widget>
 
-        <Widget>
-          <Widget.Content>
-            <p style={{ fontWeight: 700, fontSize: '16px' }}>Quizes da rapeize</p>
-            <p>Se liga nesses quizes incríveis que o pessoal da Imersão Alura fez</p>
-            <Widget.Link href="#">marquinhosdj/fazosampledeguitarra</Widget.Link>
-            <Widget.Link href="#">grupoyno/meensinaofeitiodafelicidade</Widget.Link>
-            <Widget.Link href="#">dogofwisdom/everyonelikesme</Widget.Link>
-          </Widget.Content>
-        </Widget>
+          <Widget>
+            <Widget.Content>
+              <p style={{ fontWeight: 700, fontSize: '16px' }}>Quizes da rapeize</p>
+              <p>Se liga nesses quizes incríveis que o pessoal da Imersão Alura fez</p>
+              <Widget.Link href="#">marquinhosdj/fazosampledeguitarra</Widget.Link>
+              <Widget.Link href="#">grupoyno/meensinaofeitiodafelicidade</Widget.Link>
+              <Widget.Link href="#">dogofwisdom/everyonelikesme</Widget.Link>
+            </Widget.Content>
+          </Widget>
+        </>
       </Layout>
     </>
   );

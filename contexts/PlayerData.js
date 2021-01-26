@@ -3,6 +3,7 @@ import { useContext, createContext, useState } from 'react';
 const ctxDefaultValue = {
   nome: '',
   alternativa1: '',
+  setPlayerNome: (name) => {},
 };
 const PlayerInfoContext = createContext(ctxDefaultValue);
 

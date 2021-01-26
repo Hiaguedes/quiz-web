@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Button = styled.button`
     width: 100%;
@@ -7,7 +7,7 @@ export const Button = styled.button`
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
-    background-color:${({ theme }) => theme.colors.backgroundButton};
+    background-color:${({ theme, disabled }) => disabled ? theme.colors.wrong : theme.colors.secondary};
     border-radius: ${({ theme }) => theme.borderRadius};
     margin-top: 1rem;
     outline: none;
@@ -16,4 +16,5 @@ export const Button = styled.button`
     font-weight: 700;
     font-size: 14px;
     letter-spacing: 1.25px;
+    cursor: ${({ disabled }) => (disabled ? css`not-allowed` : css`pointer`)};
 `;

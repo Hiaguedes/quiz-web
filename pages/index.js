@@ -3,7 +3,7 @@ import db from '../db.json';
 import { Widget } from '../components/Widget/styles';
 import Footer from '../components/Footer';
 import { QuizBackground } from '../components/QuizBackground';
-import GitHubCorner from '../components/GitHubCorner';
+import GitHubCorner from '../components/GithubCorner';
 
 const theme = db.theme;
 

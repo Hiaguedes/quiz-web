@@ -3,11 +3,12 @@ import { useEffect, useState } from 'react';
 import Header from 'next/head';
 import db from '../db.json';
 import { Widget } from '../components/Widget/styles';
-import { Input } from '../components/Input'
-import { Button } from '../components/Button'
-import Layout from '../layouts'
+import { Input } from '../components/Input';
+import { Button } from '../components/Button';
+import Layout from '../layouts';
+// import { usePlayerInfo } from '../contexts/PlayerData';
 
-const theme = db.theme;
+const { theme } = db;
 
 export const QuizContainer = styled.div`
   width: 100%;
@@ -22,42 +23,47 @@ export const QuizContainer = styled.div`
 
 export default function Home() {
   const [numeroPergunta, setaNumeroPergunta] = useState(0);
-  useEffect(() => {
 
-  })
+  useEffect(() => {
+  });
   return (
     <>
-    <Header>
-      <title>Pergunta {numeroPergunta + 1} de 5</title>
-    </Header>
-    <Layout>
+      <Header>
+        <title>
+          Pergunta
+          {' '}
+          {numeroPergunta + 1}
+          {' '}
+          de 5
+        </title>
+      </Header>
+      <Layout>
 
         <Widget>
-        <Widget.Header>
-                Pergunta {numeroPergunta + 1} de 5
+          <Widget.Header>
+            Pergunta
+            {' '}
+            {numeroPergunta + 1}
+            {' '}
+            de 5
           </Widget.Header>
-        <Widget.Image backgroundImage={db.questions[numeroPergunta].image} />
-        <Widget.Content>
-            <h2 style={{fontSize: '14px'}}>{db.questions[numeroPergunta].title}</h2>
+          <Widget.Image backgroundImage={db.questions[numeroPergunta].image} />
+          <Widget.Content>
+            <h2 style={{ fontSize: '14px' }}>{db.questions[numeroPergunta].title}</h2>
             <p>{db.questions[numeroPergunta].description}</p>
             {numeroPergunta === 0 && (
-            <audio rel="preload" controls>
-                <source volume="0.4" src="/sounds/audio-question1.ogg" type="audio/mpeg"/>
-            </audio>            
+              <audio rel="preload" controls>
+                <source volume="0.4" src="/sounds/audio-question1.ogg" type="audio/mpeg" />
+              </audio>
             )}
             {db
-            .questions[numeroPergunta]
-            .alternatives
-            .map((alternative,index) => {
-                return (<Widget.Link key={index}>{alternative}</Widget.Link>)
-            })}
+              .questions[numeroPergunta]
+              .alternatives
+              .map((alternative, index) => (<Widget.Link key={index}>{alternative}</Widget.Link>))}
             <Button>Confirmar</Button>
-        </Widget.Content>
+          </Widget.Content>
         </Widget>
-        </Layout>
-        <script>
-            audio.volume = 0.5;
-        </script>
+      </Layout>
     </>
-  )
+  );
 }

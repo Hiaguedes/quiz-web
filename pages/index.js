@@ -33,7 +33,7 @@ export default function Home() {
         </Widget>
 
         <Widget>
-        <Widget.Content>
+          <Widget.Content>
             <p>Título desc</p>
           </Widget.Content>
           <Widget.Content>

@@ -36,7 +36,7 @@ export default function Home() {
     <QuizBackground backgroundImage={db.bg}>
       <GitHubCorner projectUrl="https://github.com/Hiaguedes/imersao-react-nextjs-alura"/>
       <QuizContainer>
-      <div style={{margin: '0 auto'}}>
+      <div style={{display: 'flex', justifyContent: 'center'}}>
         <Image src="/img/logoAlura.svg" width="134.37px" height="67px"/>
       </div>
 
@@ -57,7 +57,9 @@ export default function Home() {
           <Widget.Content>
             <p style={{fontWeight: 700, fontSize: '16px'}}>Quizes da rapeize</p>
             <p>Se liga nesses quizes incríveis que o pessoal da Imersão Alura fez</p>
-            <Widget.Link href="#">clebinhodj/showdomilhaoalura</Widget.Link>
+            <Widget.Link href="#">marquinhosdj/fazosampledeguitarra</Widget.Link>
+            <Widget.Link href="#">grupoyno/meensinaofeitiodafelicidade</Widget.Link>
+            <Widget.Link href="#">dogofwisdom/everyonelikesme</Widget.Link>
           </Widget.Content>
         </Widget>
       <Footer />

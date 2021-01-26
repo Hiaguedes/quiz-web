@@ -58,4 +58,5 @@ Widget.Link = styled.div`
   font-size: 14px;
   line-height: 16.8px;
   cursor: pointer;
+  margin-top: 0.8rem;
 `;

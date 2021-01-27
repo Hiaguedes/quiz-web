@@ -23,6 +23,7 @@ export default function Layout({ children }) {
   useEffect(() => {
 
   });
+
   return (
     <>
       <QuizBackground backgroundImage={db.bg}>

@@ -49,7 +49,7 @@ Widget.Content = styled.div`
 Widget.Link = styled.div`
   color: ${({ theme }) => theme.colors.contrastText};
   text-decoration: none;
-  background-color: ${({ theme }) => theme.colors.linkBackground};
+  background-color: ${({ theme, clicked }) => (!clicked ? theme.colors.linkBackground : theme.colors.primary)};
   padding: 0.5rem 1rem ;
   width: 100%;
   border-radius:  ${({ theme }) => theme.borderRadius};

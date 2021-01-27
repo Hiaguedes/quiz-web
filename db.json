@@ -16,13 +16,15 @@
         ]
       },
       {
-        "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
-        "title": "Como fazer um background gradiente com css?",
-        "description": "Faz tempo em haha",
-        "answer": 0,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShGj0C9OgUzy2fPBGXDt9NAeh7EEhZ_910_w&usqp=CAU",
+        "title": "De que país e qual é o nome desse cara",
+        "description": "O sorriso desconfortável mais fofo da internet",
+        "answer": 2,
         "alternatives": [
-           "background: linear-gradient(#e66465, #9198e5);",
-           "background: gradient(#e66465, #9198e5);"
+           "Rutger Hauer, Holanda",
+           "Felix Arvid Ulf Kjellberg, Suécia",
+           "András Arató, Hungria",
+           "Noah J Davis , Estados Unidos da América"
         ]
       }
     ],

@@ -68,3 +68,27 @@ Widget.Image = styled.div`
   height: 200px;
   background-position: center;
 `;
+
+Widget.Result = styled.div`
+  width: 5rem;
+  height: 5rem;
+  border-radius: 2.5rem;
+  background-color:  ${({ theme }) => theme.colors.linkBackground};
+  margin: 0.5rem;
+  background-size: cover;
+    background-image: url(${({ backgroundImage }) => backgroundImage});
+`;
+
+export const WrapperResult = styled(Widget)`
+  position: absolute; 
+  width: 20rem; 
+  top: 110px; 
+  right: 100px; 
+`;
+
+WrapperResult.Content = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+`;

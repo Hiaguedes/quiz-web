@@ -17,7 +17,7 @@ export const Resultado = () => {
     <>
       <Header>
         <title>
-          Você acertou
+          Você acertou 
           {handleNumberOfQuestionsRight()}
           {' '}
           questões

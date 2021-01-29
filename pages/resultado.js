@@ -13,11 +13,43 @@ import { usePlayerInfo } from '../contexts/PlayerData';
 export const Resultado = () => {
   const { nome, result } = usePlayerInfo();
   const handleNumberOfQuestionsRight = () => result.filter((ele) => ele === true).length;
+
+  const handleResultMessage = (numberOfRightAnswers) => {
+    switch (true) {
+      case numberOfRightAnswers < 4: return (
+        <>
+          Feels bad man, você acertou
+          {' '}
+          {numberOfRightAnswers}
+          {' '}
+          {numberOfRightAnswers == 1 || numberOfRightAnswers == 0 ? 'questão' : 'questões'}
+          `
+        </>
+      );
+      case numberOfRightAnswers < 8: return (
+        <>
+          It's ok bro, você acertou
+          {' '}
+          {numberOfRightAnswers}
+        </>
+      );
+      case numberOfRightAnswers < 11: return (
+        <>
+          Você é o lorde dos memes, você acertou
+          {' '}
+          {numberOfRightAnswers}
+        </>
+      );
+      default: <>Deu ruim na hora de imprimir o resultado</>;
+    }
+  };
+
   return (
     <>
       <Header>
         <title>
-          Você acertou 
+          Você acertou
+          {' '}
           {handleNumberOfQuestionsRight()}
           {' '}
           questões
@@ -26,18 +58,12 @@ export const Resultado = () => {
       <Layout>
         <Widget>
           <Widget.Header>
-            Resultado
+            Resultado de
+            {' '}
+            { nome || 'Anônimo'}
           </Widget.Header>
           <Widget.Content>
-            Que daora
-            {' '}
-            {nome || 'Anônimo'}
-            {' '}
-            você acertou
-            {' '}
-            {handleNumberOfQuestionsRight()}
-            {' '}
-            questões!
+            {handleResultMessage(handleNumberOfQuestionsRight())}
           </Widget.Content>
         </Widget>
       </Layout>

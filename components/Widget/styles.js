@@ -57,6 +57,11 @@ Widget.Link = styled.div`
   line-height: 16.8px;
   cursor: pointer;
   margin-top: 0.8rem;
+  transition: background-color 0.5s ease-in-out ;
+  :hover {
+    background-color: ${({ theme }) => theme.colors.primary};
+    transition: background-color 0.5s ease-in-out ;
+  }
 `;
 
 Widget.Image = styled.div`

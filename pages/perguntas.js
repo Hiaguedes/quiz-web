@@ -61,8 +61,6 @@ export default function Perguntas() {
     }
   };
 
-  useEffect(() => {
-  });
   return (
     <>
       <Header>

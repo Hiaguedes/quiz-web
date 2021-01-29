@@ -80,10 +80,16 @@ Widget.Result = styled.div`
 `;
 
 export const WrapperResult = styled(Widget)`
-  position: absolute; 
-  width: 20rem; 
-  top: 110px; 
-  right: 100px; 
+  position: relative;
+  width: 90%;
+
+  @media (min-width: 870px) {
+    max-width: 20rem; 
+    position: absolute; 
+    top: 110px; 
+    right: 100px; 
+
+  }
 `;
 
 WrapperResult.Content = styled.div`

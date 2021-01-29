@@ -44,17 +44,16 @@ export default function Perguntas() {
     try {
       setQuizResult(numeroResposta === db.questions[numeroPergunta].answer, numeroPergunta);
       setaNumeroResposta(-1);
-  
+
       numeroResposta === db.questions[numeroPergunta].answer
         ? setMensagemResultado(<p style={{ color: '#4CAF50' }}>Você acertou!</p>)
         : setMensagemResultado(<p style={{ color: '#FF5722' }}>Você errou!</p>);
       setTimeout(() => {
         setMensagemResultado(<>Resultado</>);
         setaNumeroPergunta(numeroPergunta + 1);
-
       }, timeBetweenScreens);
     } catch (e) {
-      console.log(e)
+      console.log(e);
     } finally {
       if (numeroTotalPerguntas === numeroPergunta + 1) {
         router.push('/resultado');
@@ -95,10 +94,13 @@ export default function Perguntas() {
             <p>
               {db.questions[numeroPergunta].description}
             </p>
-            {numeroPergunta === 0 && (
-              <audio rel="preload" controls>
-                <source volume="0.4" src="/sounds/audio-question1.ogg" type="audio/mpeg" />
-              </audio>
+            {db.questions[numeroPergunta].audio && (
+              <>
+                <p>Um audio pode ser escutado aqui</p>
+                <audio rel="preload" controls>
+                  <source volume="0.4" src={db.questions[numeroPergunta].audio} type="audio/mpeg" />
+                </audio>
+              </>
             )}
             {db
               .questions[numeroPergunta]

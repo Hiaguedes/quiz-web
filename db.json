@@ -131,7 +131,9 @@
       }
     ],
     "external": [
-      "https://quiz-web.hiaguedes.vercel.app/"
+      "https://quiz-web.hiaguedes.vercel.app/",
+      "https://quiz-games.gabrielwolf-dev.vercel.app/",
+      "https://divequiz.fncarneiro.vercel.app/"
     ],
     "theme": {
       "colors": {

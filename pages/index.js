@@ -1,7 +1,9 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import Header from 'next/head';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import db from '../db.json';
 import { Widget } from '../components/Widget/styles';
 import { Input } from '../components/Input';
@@ -62,9 +64,20 @@ export default function Home() {
             <Widget.Content>
               <p style={{ fontWeight: 700, fontSize: '16px' }}>Quizes da rapeize</p>
               <p>Se liga nesses quizes incríveis que o pessoal da Imersão Alura fez</p>
-              <Widget.Link href="#">marquinhosdj/fazosampledeguitarra</Widget.Link>
-              <Widget.Link href="#">grupoyno/meensinaofeitiodafelicidade</Widget.Link>
-              <Widget.Link href="#">dogofwisdom/everyonelikesme</Widget.Link>
+              {db.external.map((link) => {
+                const [nomeProjeto, autor] = link
+                  .replace(/\//g, '')
+                  .replace('https:', '')
+                  .replace('.vercel.app', '')
+                  .split('.');
+                return (
+                  <Link href={link} passHref>
+                    <a>
+                      <Widget.Link>{`${autor.charAt(0).toUpperCase() + autor.slice(1)}/${nomeProjeto}`}</Widget.Link>
+                    </a>
+                  </Link>
+                );
+              })}
             </Widget.Content>
           </Widget>
         </>

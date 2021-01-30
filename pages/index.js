@@ -71,8 +71,8 @@ export default function Home() {
                   .replace('.vercel.app', '')
                   .split('.');
                 return (
-                  <Link href={link} passHref>
-                    <a>
+                  <Link href={`/perguntas/${nomeProjeto}___${autor}`} passHref>
+                    <a style={{textDecoration: 'none'}}>
                       <Widget.Link>{`${autor.charAt(0).toUpperCase() + autor.slice(1)}/${nomeProjeto}`}</Widget.Link>
                     </a>
                   </Link>

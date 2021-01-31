@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Widget = styled.div`
     margin-top: 24px;
@@ -80,8 +80,25 @@ Widget.Result = styled.div`
   border-radius: 2.5rem;
   background-color:  ${({ theme }) => theme.colors.linkBackground};
   margin: 0.5rem;
+  background-repeat: no-repeat;
+  background-image: url(${({ backgroundImage }) => backgroundImage});
+  animation: ${({backgroundImage}) => backgroundImage.length > 0 && css`pulseBackground 1s 1`};
+  background-position: center;
   background-size: cover;
-    background-image: url(${({ backgroundImage }) => backgroundImage});
+
+  @keyframes pulseBackground {
+    0% {
+      background-size: 0%;
+    }
+
+    99% {
+      background-size: 100%;
+    }
+
+    100% {
+      background-size: cover;
+    }
+  }
 `;
 
 export const WrapperResult = styled(Widget)`

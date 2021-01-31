@@ -10,6 +10,7 @@ import Layout from '../layouts';
 import { usePlayerInfo } from '../contexts/PlayerData';
 import Loading from '../components/Loading';
 import { Button } from '../components/Button';
+import { motion } from 'framer-motion';
 
 const rightAnswerIcon = '/img/check-circle.svg';
 const wrongAnswerIcon = '/img/wrong-circle.svg';
@@ -47,8 +48,8 @@ export default function Perguntas({ api }) {
       setaNumeroResposta(-1);
 
       numeroResposta === db.questions[numeroPergunta].answer
-        ? setMensagemResultado(<p style={{ color: '#4CAF50' }}>Você acertou!</p>)
-        : setMensagemResultado(<p style={{ color: '#FF5722' }}>Você errou!</p>);
+        ? setMensagemResultado(<p style={{ color: '#4CAF50', fontSize:'18px' }}>Você acertou!</p>)
+        : setMensagemResultado(<p style={{ color: '#FF5722', fontSize:'18px' }}>Você errou!</p>);
       setTimeout(() => {
         setMensagemResultado(<>Resultado</>);
         setaNumeroPergunta(numeroPergunta + 1);
@@ -125,6 +126,9 @@ export default function Perguntas({ api }) {
           <WrapperResult.Content>
             {Array.from(Array(numeroTotalPerguntas), (e, i) => (
               <Widget.Result
+                as={motion.div}
+                animate={{ scale: 1.06 }}
+                transition={{ duration: 0.5 }}
                 key={i}
                 backgroundImage={result[i] === true ? rightAnswerIcon
                   : result[i] === false ? wrongAnswerIcon : ''}

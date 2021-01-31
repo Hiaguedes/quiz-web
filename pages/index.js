@@ -10,6 +10,7 @@ import { Input } from '../components/Input';
 import { Button } from '../components/Button';
 import Layout from '../layouts';
 import { usePlayerInfo } from '../contexts/PlayerData';
+import { motion } from 'framer-motion';
 
 const { theme } = db;
 
@@ -45,7 +46,15 @@ export default function Home() {
       </Header>
       <Layout>
         <>
-          <Widget>
+          <Widget
+            as={motion.section}
+            variants={{
+            show: {opacity: 1},
+            hidden: {opacity: 0},
+          }}
+          initial="hidden"
+          animate="show"
+          >
             <Widget.Header>
               <h1>{db.title}</h1>
             </Widget.Header>

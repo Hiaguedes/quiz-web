@@ -33,7 +33,7 @@ export default function Home() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setPlayerNome(nameValue);
-    router.push('/perguntas');
+    router.push(`/perguntas?name=${nameValue}`);
   };
 
   useEffect(() => {
@@ -63,7 +63,7 @@ export default function Home() {
               <form onSubmit={(e) => handleSubmit(e)}>
                 <Input required placeholder="Diz aí seu nome pra jogar :)" value={nameValue} onChange={(e) => setNameValue(e.target.value)} />
                 <Button disabled={nameValue.length === 0}>
-                  Jogar
+                  Jogar {nameValue.length >0 && <>como {nameValue}</>}
                 </Button>
               </form>
             </Widget.Content>
